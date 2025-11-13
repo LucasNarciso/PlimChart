@@ -1,6 +1,6 @@
 # PlimChart
 
-**Breve Descrição:** [PlimChart é uma ferramenta pensada para facilitar a criação de DashBorads simples, de forma rápida e sem muita burocracia e conhecimento técnico]
+**Breve Descrição:** PlimChart é uma ferramenta pensada para facilitar a criação de DashBorads simples, de forma rápida e sem muita burocracia e conhecimento técnico
 
 ## ⚠️ AVISO IMPORTANTE: Direitos Autorais e Distribuição
 
@@ -23,4 +23,4 @@ Valorizamos a ajuda da comunidade para tornar este projeto mais estável. Se voc
 
 ## Como Começar
 
-[Ainda não está disponível para uso]
+Ainda não está disponível para uso
