@@ -1,8 +1,10 @@
 # PlimChart
 
-**Breve Descrição:** PlimChart é uma ferramenta pensada para facilitar a criação de DashBorads simples, de forma rápida e sem muita burocracia e conhecimento técnico
+**Breve Descrição:** 
 
-## ⚠️ AVISO IMPORTANTE: Direitos Autorais e Distribuição
+PlimChart: O construtor de Dashboards Simplificados. Crie painéis visuais de forma instantânea e intuitiva, eliminando a necessidade de processos complexos ou conhecimento técnico aprofundado. Transforme dados em insights em minutos.
+
+## ⚠️ Direitos Autorais e Distribuição
 
 Este repositório está configurado como **público apenas para visualização e consulta**.
 
@@ -23,4 +25,4 @@ Valorizamos a ajuda da comunidade para tornar este projeto mais estável. Se voc
 
 ## Como Começar
 
-Ainda não está disponível para uso
+A ferramenta se encontra em desenvolvimento, sem disponibilidade de uso até o momento.
