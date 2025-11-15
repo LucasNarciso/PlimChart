@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plimchart</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.12.11/dist/cdn/beer.min.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.12.11/dist/cdn/beer.min.js"></script>
+    <link rel="stylesheet" href="Style/style.css">
+    <script src="Script/script.js"></script>
+</head>
+
+<body onload="carregarTema()" class="dark">
+    <nav class="left plim-menu round plim-janela medium-elevate l m">
+
+        <a id="botao-sobre" data-ui="#page-sobre">
+            <img src="Assets/Logo.png" class="small plim-no-round" alt="Logo PlimChart">
+        </a>
+
+        <a data-ui="#page-dashboards" class="active">
+            <i class="extra">view_cozy</i>
+        </a>
+
+        <a data-ui="#page-edit">
+            <i class="extra">analytics</i>
+        </a>
+
+        <a data-ui="#page-fonts">
+            <i class="extra">data_table</i>
+        </a>
+
+        <a data-ui="#page-options" style="margin-top: auto;">
+            <i class="extra">settings</i>
+        </a>
+    </nav>
+
+    <nav class="bottom plim-menu round plim-janela medium-elevate s">
+
+        <a id="botao-sobre" data-ui="#page-sobre">
+            <img src="Assets/Logo.png" class="small plim-no-round" alt="Logo PlimChart">
+        </a>
+
+        <a data-ui="#page-dashboards" class="active">
+            <i class="extra">view_cozy</i>
+        </a>
+
+        <a data-ui="#page-edit">
+            <i class="extra">analytics</i>
+        </a>
+
+        <a data-ui="#page-fonts">
+            <i class="extra">data_table</i>
+        </a>
+
+        <a data-ui="#page-options" style="margin-top: auto;">
+            <i class="extra">settings</i>
+        </a>
+    </nav>
+    <main id="page-sobre" class="responsive page round plim-janela medium-elevate">
+        <div class="scroll plim-no-round">
+            <p>Sobre</p>
+        </div>
+    </main>
+    <main id="page-dashboards" class="responsive page round active plim-janela medium-elevate">
+        <div class="scroll plim-no-round">
+            <div class="grid plim-galeria"></div>
+        </div>
+    </main>
+    <main id="page-edit" class="responsive page round plim-pagina-dupla">
+        <div class="grid">
+            <div class="s12 m10 l10 plim-janela medium-elevate">
+                <h3>Dashboard</h3>
+            </div>
+            <div class="s2 m2 l2 plim-janela medium-elevate m l">
+                <h3>Gráficos</h3>
+            </div>
+        </div>
+    </main>
+    <main id="page-fonts" class="responsive page round plim-pagina-dupla">
+        <div class="grid" id="cadastro-fontes">
+            <div class="s6 plim-janela medium-elevate">
+                <h3>Origens</h3>
+            </div>
+            <div class="s6 plim-janela medium-elevate">
+                <h3>Recursos</h3>
+            </div>
+        </div>
+    </main>
+    <main id="page-options" class="page round plim-janela medium-elevate">
+        <div>
+            <div>
+                <h6>Aparência:</h6>
+                <br>
+                <label class="switch icon">
+                    <input id="switch-tema" type="checkbox" onchange="trocarTema(this)">
+                    <span>
+                        <i>dark_mode</i>
+                    </span>
+                </label>
+            </div>
+            <br> <hr> <br>
+            <div>
+                <h6>Dados:</h6>
+                <br>
+                <button class="no-margin border round secondary">
+                    <i>upload</i>
+                    <input type="file" accept="application/json">
+                    <span>Importar Dashboards</span>
+                </button>
+                <button id="botao-ajuda-importacao" class="transparent square small">
+                    <i>help</i>
+                    <div class="tooltip max">
+                        <b>Arquivo</b>
+                        <p>Para importar Dashboards para o sistema, selecione o arquivo <b>.json</b> que foi exportado anteriormente.</p>
+                    </div>
+                </button>
+                <br><br>
+                <button class="no-margin border round secondary">
+                    <i>download</i>
+                    <span>Exportar Dashboards</span>
+                </button>
+            </div>
+            <br> <hr> <br>
+            <div>
+                <h6>Zona de perigo:</h6>
+                <br>
+                <button data-ui="#modal-aviso-exclusao" class="no-margin border round error">
+                    <i>close</i>
+                    <span>Limpar Dados</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="modal-aviso-exclusao" class="modal">
+        <h5>ATENÇÃO</h5>
+        <div>Essa é uma ação irreversível!</div>
+        <div>Tem certeza que deseja <b>apagar todos os dados</b>?</div>
+        <nav class="right-align no-space">
+            <button data-ui="#modal-aviso-exclusao" class="transparent">Cancelar</button>
+            <button data-ui="#modal-aviso-exclusao" onclick="limparDados()" class="primary error">APAGAR</button>
+        </nav>
+    </dialog>
+</body>
+
+</html>
