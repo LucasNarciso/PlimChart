@@ -73,6 +73,31 @@ body{
     }
 }
 
+#plim-aviso-beta{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 999;
+    border-bottom: 2px solid var(--primary);
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 5px;
+
+    span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 300;
+        color: #fff;
+        padding: 2px;
+        background-color: var(--primary);
+        border-radius: 5px 5px 0px 0px;
+        font-size: .8rem;
+        line-height: .8rem;
+    }
+}
+
 
 /* Substituindo classes Padrões Beer*/
 
@@ -197,5 +222,11 @@ body{
 
     #botao-ajuda-importacao{
         position: static;
+    }
+
+    #plim-aviso-beta{
+        font-size: .6rem;
+        line-height: .6rem;
+        justify-content: center;
     }
 }

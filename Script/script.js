@@ -1,18 +1,12 @@
 var dashs = [
-    {nome: "Teste 1", img:""},
-    {nome: "Teste 2", img:""},
-    {nome: "Teste 3", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
-    {nome: "Teste 4", img:""},
+    {nome: "dashboard 1", img:""},
+    {nome: "dashboard 2", img:""},
+    {nome: "dashboard 3", img:""},
+    {nome: "dashboard 4", img:""},
+    {nome: "dashboard 5", img:""},
+    {nome: "dashboard 6", img:""},
+    {nome: "dashboard 7", img:""},
+    {nome: "dashboard 8", img:""},
 ]
 
 function renderizarGaleria(){
