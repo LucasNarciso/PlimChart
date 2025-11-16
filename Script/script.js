@@ -33,9 +33,7 @@ function renderizarGaleria(){
 }
 
 function carregarConfigs(){
-    let configs = JSON.parse(localStorage.getItem('plim-opts'));
-    
-    if(!configs) return;
+    let configs = JSON.parse(localStorage.getItem('plim-opts')) || {};
     
     let switchTema = document.getElementById('switch-tema');
     switchTema.checked = (configs.tema == "dark");
