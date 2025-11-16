@@ -38,29 +38,51 @@ function renderizarGaleria(){
     })
 }
 
-function carregarTema(){
-    let tema = localStorage.getItem('tema') || 'light';
-    document.body.setAttribute('class',tema)
+function carregarConfigs(){
+    let configs = JSON.parse(localStorage.getItem('plim-opts'));
+    
+    if(!configs) return;
+    
+    let switchTema = document.getElementById('switch-tema');
+    switchTema.checked = (configs.tema == "dark");
+    trocarTema(switchTema)
+    
+    let switchSobre = document.getElementById("switch-sobre");
+    switchSobre.checked = configs.btnSobre;
+    desabilitarSobre(switchSobre)
 
-    if(tema == "light"){
-        document.getElementById('switch-tema').checked = false;
-    }else{
-        document.getElementById('switch-tema').checked = true;
-    }
+}
+
+function salvarConfigs(config, valor){
+    let configs = JSON.parse(localStorage.getItem('plim-opts')) || {};
+
+    configs[config] = valor;
+
+    localStorage.setItem('plim-opts',JSON.stringify(configs));
 }
 
 function trocarTema(campo){
     if(campo.checked){
-        localStorage.setItem('tema','dark')
+        salvarConfigs('tema','dark')
+        document.body.setAttribute('class','dark')
     }else{
-        localStorage.setItem('tema','light')
+        salvarConfigs('tema','light')
+        document.body.setAttribute('class','light')
     }
-
-    carregarTema();
 }
 
 function limparDados(){
     console.log("Dados Excluidos!");
+    localStorage.clear();
+}
+
+function desabilitarSobre(campo){
+    salvarConfigs('btnSobre',campo.checked)
+    if(campo.checked){
+        document.querySelectorAll('[data-name="botao-sobre"]').forEach(btn=>btn.setAttribute('class','plim-oculto'));
+    }else{
+        document.querySelectorAll('[data-name="botao-sobre"]').forEach(btn=>btn.removeAttribute('class'));
+    }
 }
 
 setTimeout( renderizarGaleria,500 )
