@@ -10,7 +10,7 @@ body{
         min-width: 50px;
         margin-right: 1rem;
 
-        [data-name]{
+        [data-name="botao-sobre"]{
             &.active{
                 background-color: var(--secondary-container);
             }

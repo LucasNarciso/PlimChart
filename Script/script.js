@@ -68,6 +68,7 @@ function trocarTema(campo){
 function limparDados(){
     console.log("Dados Excluidos!");
     localStorage.clear();
+    carregarConfigs();
 }
 
 function desabilitarSobre(campo){
