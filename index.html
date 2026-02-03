@@ -10,7 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/beercss@3.12.11/dist/cdn/beer.min.css" rel="stylesheet">
     <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.12.11/dist/cdn/beer.min.js"></script>
     <link rel="stylesheet" href="Style/style.css">
+    <script src="Script/indexed_db_system.js"></script>
     <script src="Script/script.js"></script>
+    <script src="Script/componentes.js"></script>
 </head>
 
 <body onload="carregarConfigs()" class="light">
@@ -21,19 +23,19 @@
         </a>
 
         <a data-ui="#page-dashboards" class="active">
-            <i class="extra">view_cozy</i>
+            <i class="medium">view_cozy</i>
         </a>
 
         <a data-ui="#page-edit">
-            <i class="extra">analytics</i>
+            <i class="medium">analytics</i>
         </a>
 
         <a data-ui="#page-fonts">
-            <i class="extra">data_table</i>
+            <i class="medium">data_table</i>
         </a>
 
         <a data-ui="#page-options" style="margin-top: auto;">
-            <i class="extra">settings</i>
+            <i class="medium">settings</i>
         </a>
     </nav>
 
@@ -44,32 +46,35 @@
         </a>
 
         <a data-ui="#page-dashboards" class="active">
-            <i class="extra">view_cozy</i>
+            <i class="medium">view_cozy</i>
         </a>
 
         <a data-ui="#page-edit">
-            <i class="extra">analytics</i>
+            <i class="medium">analytics</i>
         </a>
 
         <a data-ui="#page-fonts">
-            <i class="extra">data_table</i>
+            <i class="medium">data_table</i>
         </a>
 
         <a data-ui="#page-options" style="margin-top: auto;">
-            <i class="extra">settings</i>
+            <i class="medium">settings</i>
         </a>
     </nav>
-    <main id="page-sobre" class="responsive page round plim-janela medium-elevate">
+
+    <main id="page-sobre" class="page round plim-janela medium-elevate">
         <div class="scroll plim-no-round">
             <p>Sobre</p>
         </div>
     </main>
-    <main id="page-dashboards" class="responsive page round active plim-janela medium-elevate">
+
+    <main id="page-dashboards" class="page round plim-janela medium-elevate active">
         <div class="scroll plim-no-round">
             <div class="grid plim-galeria"></div>
         </div>
     </main>
-    <main id="page-edit" class="responsive page round plim-pagina-dupla">
+
+    <main id="page-edit" class="page round plim-pagina-dupla">
         <div class="grid">
             <div class="s12 m10 l10 plim-janela medium-elevate">
                 <h3>Dashboard</h3>
@@ -79,16 +84,21 @@
             </div>
         </div>
     </main>
-    <main id="page-fonts" class="responsive page round plim-pagina-dupla">
-        <div class="grid" id="cadastro-fontes">
-            <div class="s6 plim-janela medium-elevate">
-                <h3>Origens</h3>
-            </div>
-            <div class="s6 plim-janela medium-elevate">
-                <h3>Recursos</h3>
+
+    <main id="page-fonts" class="page round plim-pagina-dupla medium-elevate">
+        <div class="padding plim-janela medium-elevate"
+            style="display: flex;flex-direction: column;height: 100%;flex-grow: 1; max-width: 50%; gap: 1rem;">
+            <h3 class="">Origens</h3>
+            <div class="no-round" style="display: flex;height: 100%;overflow: auto;" id="lista-origens"></div>
+        </div>
+        <div class="s6 plim-janela medium-elevate"
+            style="display: flex;flex-direction: column;height: 100%;flex-grow: 1;">
+            <h3 class="padding">Recusos</h3>
+            <div class="padding" style="display: flex;height: 100%;overflow: auto;" id="lista-recursos">
             </div>
         </div>
     </main>
+
     <main id="page-options" class="page round plim-janela medium-elevate">
         <div class="scroll">
             <div class="plim-sessao-config">
@@ -111,7 +121,7 @@
                 <div class="small field middle-align">
                     <nav>
                         <div>
-                            <h6 class="small">Desabilitar sobre:</h6>
+                            <h6 class="small">Ocultar botão sobre:</h6>
                         </div>
                         <label class="switch icon">
                             <input id="switch-sobre" type="checkbox" onchange="desabilitarSobre(this)">
@@ -123,7 +133,8 @@
                     </nav>
                 </div>
             </div>
-            <br> <hr> <br>
+            <br>
+            <hr> <br>
             <div class="plim-sessao-config">
                 <h6>Dados:</h6>
                 <br>
@@ -137,17 +148,19 @@
                         <i>help</i>
                         <div class="tooltip max">
                             <b>Arquivo</b>
-                            <p>Para importar Dashboards para o sistema, selecione o arquivo <b>.json</b> que foi exportado anteriormente.</p>
+                            <p>Para importar Dashboards para o sistema, selecione o arquivo <b>.json</b> que foi
+                                exportado anteriormente.</p>
                         </div>
                     </button>
                 </div>
-                <br><br>
+                <br>
                 <button class="no-margin border round secondary">
                     <i>download</i>
                     <span>Exportar Dashboards</span>
                 </button>
             </div>
-            <br> <hr> <br>
+            <br>
+            <hr> <br>
             <div class="plim-sessao-config">
                 <h6>Zona de perigo:</h6>
                 <br>
@@ -156,7 +169,8 @@
                     <span>Limpar Dados</span>
                 </button>
             </div>
-            <br> <hr> <br>
+            <br>
+            <hr> <br>
             <div class="plim-sessao-config">
                 <h6>Mais:</h6>
                 <br>
@@ -164,8 +178,10 @@
                     <i>info</i>
                     <span>Sobre</span>
                 </button>
-                <button onclick="window.open('https://github.com/LucasNarciso/PlimChart','_blank')" class="no-margin border round">
-                    <img class="small" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Logo Invertocat Github">
+                <button onclick="window.open('https://github.com/LucasNarciso/PlimChart','_blank')"
+                    class="no-margin border round">
+                    <img class="small" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                        alt="Logo Invertocat Github">
                     <span>Repositório</span>
                 </button>
             </div>
@@ -183,7 +199,7 @@
     </dialog>
     <div id="plim-aviso-beta">
         <span>beta 0.0.4</span>
-    </div>
+    </div>    
 </body>
 
 </html>
